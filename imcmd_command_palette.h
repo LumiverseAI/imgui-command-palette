@@ -38,41 +38,41 @@ struct Command
 struct Context;
 
 /// Create a new context object. If there is currently no context bound, it will also be bound as the current context.
-Context* CreateContext();
+IMGUI_API Context* CreateContext();
 /// Destroys the currently bound context.
-void DestroyContext();
-void DestroyContext(Context* context);
+IMGUI_API void DestroyContext();
+IMGUI_API void DestroyContext(Context* context);
 
-void SetCurrentContext(Context* context);
-Context* GetCurrentContext();
+IMGUI_API void SetCurrentContext(Context* context);
+IMGUI_API Context* GetCurrentContext();
 
 // Command management
-void AddCommand(Command command);
-void RemoveCommand(const char* name);
+IMGUI_API void AddCommand(Command command);
+IMGUI_API void RemoveCommand(const char* name);
 
 // Styling
-bool GetStyleFlag(ImCmdTextType type, ImCmdTextFlag flag);
-void SetStyleFlag(ImCmdTextType type, ImCmdTextFlag flag, bool enabled);
-ImFont* GetStyleFont(ImCmdTextType type);
-void SetStyleFont(ImCmdTextType type, ImFont* font);
-ImU32 GetStyleColor(ImCmdTextType type);
-void SetStyleColor(ImCmdTextType type, ImU32 color);
-void ClearStyleColor(ImCmdTextType type); //< Clear the style color for the given type, defaulting to ImGuiCol_Text
+IMGUI_API bool GetStyleFlag(ImCmdTextType type, ImCmdTextFlag flag);
+IMGUI_API void SetStyleFlag(ImCmdTextType type, ImCmdTextFlag flag, bool enabled);
+IMGUI_API ImFont* GetStyleFont(ImCmdTextType type);
+IMGUI_API void SetStyleFont(ImCmdTextType type, ImFont* font);
+IMGUI_API ImU32 GetStyleColor(ImCmdTextType type);
+IMGUI_API void SetStyleColor(ImCmdTextType type, ImU32 color);
+IMGUI_API void ClearStyleColor(ImCmdTextType type); //< Clear the style color for the given type, defaulting to ImGuiCol_Text
 
 // Command palette widget
-void SetNextCommandPaletteSearch(const char* text);
-void SetNextCommandPaletteSearchBoxFocused();
-void CommandPalette(const char* name);
-bool IsAnyItemSelected();
+IMGUI_API void SetNextCommandPaletteSearch(const char* text);
+IMGUI_API void SetNextCommandPaletteSearchBoxFocused();
+IMGUI_API void CommandPalette(const char* name);
+IMGUI_API bool IsAnyItemSelected();
 
-void RemoveCache(const char* name);
-void RemoveAllCaches();
+IMGUI_API void RemoveCache(const char* name);
+IMGUI_API void RemoveAllCaches();
 
 // Command palette widget in a window helper
-void SetNextWindowAffixedTop(ImGuiCond cond = 0);
-void CommandPaletteWindow(const char* name, bool* p_open);
+IMGUI_API void SetNextWindowAffixedTop(ImGuiCond cond = 0);
+IMGUI_API void CommandPaletteWindow(const char* name, bool* p_open);
 
 // Command responses, only call these in command callbacks (except TerminatingCallback)
-void Prompt(std::vector<std::string> options);
+IMGUI_API void Prompt(std::vector<std::string> options);
 
 } // namespace ImCmd
